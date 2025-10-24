@@ -1,0 +1,63 @@
+/* ======== Fundo animado estilo Omnitrix ======== */
+.omnitrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 100, 0.15) 0%,
+    transparent 70%
+  );
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* Camada com partículas girando */
+.omnitrix-bg::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 100, 0.3) 15%,
+    transparent 20.01%
+  );
+  background-size: 25px 25px;
+  animation: spinOmnitrix 30s linear infinite;
+  opacity: 0.6;
+}
+
+/* Camada de pulsação suave */
+.omnitrix-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 100, 0.15),
+    transparent 100%
+  );
+  animation: pulseOmnitrix 4s ease-in-out infinite;
+}
+
+@keyframes spinOmnitrix {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseOmnitrix {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
